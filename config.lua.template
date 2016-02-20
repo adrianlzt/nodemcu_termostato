@@ -1,0 +1,26 @@
+-- file : config.lua
+local module = {}
+
+module.SSID = {}  
+module.SSID["Red"] = "caballo33"
+
+-- module.HOST = "192.168.12.1"
+-- module.HOST = "test.mosquitto.org"
+module.HOST = "mqtt.dioty.co"
+module.PORT = 1883
+module.ID = "nodemcu-" .. node.chipid()
+module.USER = "adrianlzt@gmail.com"
+module.PASS = "PASSWORD"
+
+module.SUB = {temp_obj = "/adrianlzt@gmail.com/termostato/temp_obj", encender = "/adrianlzt@gmail.com/termostato/encender"}
+module.PUB_TEMP = "/adrianlzt@gmail.com/termostato/temp"
+module.PUB_ESTADO = "/adrianlzt@gmail.com/termostato/estado"
+module.PING = "/adrianlzt@gmail.com/ping"
+
+module.PIN_TERMOSTATO_ON = 4
+module.PIN_TERMOSTATO_UP = 5
+module.PIN_TERMOSTATO_DOWN = 6
+
+module.TERMOSTATO_TEMP_MAX = 30
+
+return module
