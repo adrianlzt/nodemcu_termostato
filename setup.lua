@@ -35,11 +35,11 @@ end
 
 local function wifi_start(list_aps) 
     wifi.setmode(wifi.STATION);
-    key = "Red"
+    key = "grenoble"
     wifi.sta.config(key,config.SSID[key])
     tmr.alarm(1, 2500, 1, wifi_wait_ip)
 
-    -- la amyoria de las veces no encuentro nuestra wifi
+    -- la mayoria de las veces no encuentro nuestra wifi
     --if list_aps then
     --    for key,value in pairs(list_aps) do
     --        print("wifi con " .. key .. " y " .. value)
@@ -59,9 +59,10 @@ end
 
 function module.start()
   gpio.mode(config.PIN_TERMOSTATO_ON, gpio.OUTPUT) -- led placa
+  gpio.mode(config.PIN_PUERTA, gpio.INPUT) -- sensor hall
   led_blink(50,1000)
   print("Configuring Wifi ...")
-  wifi.setmode(wifi.STATION);
+  wifi.setmode(wifi.STATION)
   wifi.sta.getap(wifi_start)
 end
 
